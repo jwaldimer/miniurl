@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "redirects/show"
   root "mini_urls#new"
 
   resources :mini_urls, only: %i[create show]

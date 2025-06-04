@@ -1,0 +1,37 @@
+<h1><%= t('mini_url.new.title') %></h1>
+
+<%= form_with model: @mini_url, local: true do |form| %>
+  <div>
+    <%= form.label :original_url, t('mini_url.new.original_url_text') %><br>
+    <%= form.text_field :original_url, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :alias, t('mini_url.new.mini_url') %><br>
+    <%= form.text_field :alias %>
+  </div>
+
+  <div>
+    <%= form.submit t('mini_url.new.action') %>
+  </div>
+<% end %>
+
+<% if @mini_url.errors.any? %>
+  <ul>
+    <% @mini_url.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<hr>
+
+<h2><%= t('mini_url.new.my_urls') %></h2>
+<ul>
+  <% @urls.each do |url| %>
+    <li>
+      <strong><%= "https://miniurl.com/#{url.alias}" %>:</strong>
+      <%= link_to t('mini_url.new.visit_url'), mini_url_path(url) %> |
+    </li>
+  <% end %>
+</ul>

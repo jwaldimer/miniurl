@@ -32,3 +32,10 @@ en:
   mini_url:
     errors:
       alias_reserved: is reserved and cannot be used.
+    new:
+      title: Minimize your URL
+      original_url_text: Your original long URL
+      mini_url: Custom minimized URL
+      action: Minimize URL
+      my_urls: My recents MiniURLs
+      visit_url: Visit URL

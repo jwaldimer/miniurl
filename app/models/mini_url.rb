@@ -2,7 +2,8 @@ class MiniUrl < ApplicationRecord
   has_many :visits, dependent: :destroy
 
   VALID_TOKEN_REGEX = /\A[a-zA-Z0-9\-_]+\z/
-  RESERVED_TOKENS = %w[api admin login logout users new]
+  RESERVED_ALIAS = %w[api admin login logout users new]
+  CREATE_PARAMS = %i[original_url alias description]
 
   validates :original_url, presence: true, format: URI::DEFAULT_PARSER.make_regexp
   validates :alias, presence: true, uniqueness: true,
